@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>赏头条</title>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+    <meta name="description" content="">
+
+    <link rel="stylesheet" href="css/lib.css" />
+    <link rel="stylesheet" href="css/download.css" />
+    <script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+    <style>
+        #cover{
+            position:absolute;left:0px;top:0px;
+            background:#000000;
+            width:100%;  /*宽度设置为100%，这样才能使隐藏背景层覆盖原页面*/
+            height:100%;
+            filter:alpha(opacity=80);  /*设置透明度为60%*/
+            opacity:0.8;  /*非IE浏览器下设置透明度为60%*/
+            display:none;
+            z-Index:999;
+        }
+        #modal{
+            position:absolute;
+            width:500px;
+            height:300px;
+            top:50%;
+            left:50%;
+            background-color:#fff;
+            display:none;
+            cursor:pointer;
+            z-Index:9999;
+        }
+        .aui-nav{
+            padding-left: 0;
+          height: auto;
+}
+.aui-nav a{
+    float: left;
+    width: 40%;
+    background: linear-gradient(135deg,rgba(255,162,0,1) 0%,rgba(255,105,0,1) 100%);
+    margin-left: 5%;
+}
+
+</style>
+</head>
+
+<body ontouchstart class="bodyBox" style="margin: 0;">
+<div id="cover">
+    <img src="images/xz.png">
+</div>
+<img src="images/xc.png" class="dw_js"/>
+<footer class="aui-nav">
+    <a href="javascript:void(0);" onclick="dow()">下载苹果APP</a>
+    <a href="javascript:void(0);" onclick="dow()">下载安卓APP</a>
+</footer>
+
+    <!-- js -->
+    <script src="js/httpUtil.js"></script>
+    <script>
+    $(function () {
+        // if(isWeixinWeb()){
+        //     $("#cover").css({ "width": $(document).width(), "height": $(document).height() });
+        //     $("#cover").show();
+        // }
+    })
+    function dow() {
+        //window.location.href="http://hfile.youjiana.com/GROUP/M00/00/6D/rBHYQFty3oGECM5kAAAAAEi89GA567.apk"
+        window.open(hfileUrl+"/GROUP/M00/00/6D/rBHYQFty3oGECM5kAAAAAEi89GA567.apk");
+    }
+    </script>
+<!--    <script src="js/jquery-weui.js"></script>-->
+
+</body>
+</html>

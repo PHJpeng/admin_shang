@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>签到</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link rel="stylesheet" href="css/cui.css" />
+	<link rel="stylesheet" href="css/lib.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="js/httpUtil.js"></script>
+
+
+	<script type="text/javascript" src="js/sign.js"></script>
+</head>
+<body >
+<div class="si-top">
+	<div class="si-content">
+		<span >已坚持</span>
+		<zxn id="summary">
+
+			<div  >0</div>
+			<div>0</div>
+			<div >0</div>
+		</zxn>
+
+		<span >天签到</span>
+	</div>
+	<div class="sic">
+		<img src="images/jifen-3@2x.png" style="width: 24px;height: 24px; margin-bottom: -7px;">
+		连续签到7天即可额外获得3积分
+
+	</div>
+</div>
+<div class="lxq">
+
+	<div class="tip">已连续签到<span id="continuity">0</span>	天</div>
+	<div style="margin-top: 20px;">
+
+		<ul id="tsi">
+<!--			<li><img src="images/jx.png"></li>-->
+<!--			<li><img src="images/jx.png"></li>-->
+<!--			<li><img src="images/jx.png"></li>-->
+<!--			<li><img src="images/jx.png"></li>-->
+<!--			<li><img src="images/jx.png"></li>-->
+<!--			<li><img src="images/jxn.png"></li>-->
+<!--			<li><img class="liwu" src="images/liwu1@2x.png"></li>-->
+
+		</ul>
+	</div>
+	<div style="margin-top: 10px;float: left;width: 100%;">
+		<ul id="ts">
+			<li>1天</li>
+			<li>2天</li>
+			<li>3天</li>
+			<li>4天</li>
+			<li>5天</li>
+			<li>6天</li>
+			<li>7天</li>
+		</ul>
+	</div>
+</div>
+<div>
+	<div class="sibtn" onclick="sign();" id="sign">马上签到</div>
+	<div style="display: none;" id="yqd" class="sibtn"  >今日已签到</div>
+</div>
+</body>
+</html>

@@ -1,0 +1,50 @@
+工具操作
+[tool]
+#应用调试模式
+app_debug           =true
+#验证码开关
+ver_code            =true
+#加密
+secret              =false
+
+#短信限制-间隔时间-单位秒
+interval_time = 60
+#短息限制-每天次数
+number = 10
+
+[database]
+#服务器地址
+hostname            =rm-j6cl5jij0m628n6sdoo.mysql.rds.aliyuncs.com
+#从服务器地址
+slave_hostname      =rm-j6cl5jij0m628n6sdoo.mysql.rds.aliyuncs.com
+#数据库名
+database            =app_shang
+#用户名
+username            =shangtoutiao
+#密码
+password            =Shang112233!
+#端口
+hostport            =3306
+
+[redis]
+#redis地址
+host                =39.97.190.21
+#密码
+password            =TB2jFrgP5xgSzvyu
+#端口
+redis_port          =6379
+#选择库
+redis_database      =1
+
+#阿里大鱼
+[ali]
+access_id           =LTAI4FzYyb3PX8N4MuEUvCAV
+access_secret       =5aNChNUkVch6VL91CdpszODjGPXXHB
+sign_name           =赏头条
+template_code       =SMS_189520667
+
+[oss]
+READ_URL            =http://admin.shangtout.com:90
+READ_URL1           =http://admin.shangtout.com:90
+#OSS上传开关 如果选中local本地 oss图片服务器 请同时修改READ_URL为域名
+DISK                =local

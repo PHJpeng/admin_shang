@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge, chrome=1" />
+    <meta name="renderer" content="webkit" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, minimum-scale=1, user-scalable=no" />
+    <meta name="format-detection" content="telephone=no" />
+    <title>商品详情</title>
+    <meta name="description" content="" />
+    <meta name="keywords" content="" />
+    <link rel="stylesheet" href="css/swiper.css" />
+    <link rel="stylesheet" href="css/style2.css" />
+
+    <script src="js/jquery.min.js"></script>
+    <script src="js/lib.js"></script>
+    <script src="js/httpUtil.js"></script>
+    <script src="js/goods.js"></script>
+</head>
+
+<body>
+    <div class="main">
+        <div class="swiper_pro">
+            <div class="swiper-wrapper" style="height: 275px">
+
+
+            </div>
+            <!-- Add Pagination -->
+            <div class="swiper-pagination"></div>
+        </div>
+        <div class="txt_pro pro_2">
+            <div class="price">
+                <div class="p1"></div>
+                <div class="p2"></div>
+            </div>
+            <h3 id="title"></h3>
+<!--            <span class="g-d">甄选果仁我们的最爱甄选果仁我们的最爱</span>-->
+            <div class="gg">
+                <span class="g-d">规格</span>
+                <div class=" active-btn">500g</div>
+                <div class="btn ">1000g</div>
+            </div>
+            <div class="gg-d"  >
+                <div class="g-d">销量：<zxn id="xl"></zxn></div>
+                <div class="g-d" style="text-align: center;">库存：<zxn id="kc"></zxn></div>
+                <div class="g-d" style="text-align: right;">运费：<zxn id="yf"></zxn></div>
+            </div>
+        </div>
+
+        <div class="pro_detail detial_2">
+            <h3 class="tit" style="background: #FFFFFF;font-weight:600;">商品详情</h3>
+            <div class="con">
+
+            </div>
+        </div>
+        <div class="ddbtn" onclick="buyGoods();">
+<!--            <div>-->
+<!--                <img id="sc"  src="images/shoucang@2x.png">-->
+<!--                <span style="color: #9B9B9B;">收藏</span>-->
+<!--            </div>-->
+            <div class="gmbtn">立即购买</div>
+        </div>
+    </div>
+    <script src="js/swiper.min.js"></script>
+    <script>
+        $(function() {
+
+        });
+    </script>
+    <script>
+        less = {
+            env: 'development'
+        }
+    </script>
+    <script src="https://cdn.bootcss.com/less.js/3.9.0/less.min.js"></script>
+</body>
+
+</html>

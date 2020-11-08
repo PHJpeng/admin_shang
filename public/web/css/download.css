@@ -1,0 +1,29 @@
+.dw_js{
+	width: 100%;
+	
+}
+.bg{
+   background: #FFFFFF;
+}
+.aui-nav{
+	background: #ffffff;
+    height: 60px;
+    width: 100%;
+    border-top: 1px #eeeeee solid;
+    padding:10px 12px 10px 12px;
+    position: fixed;
+    bottom: 0px;
+    left: 0px;
+    
+}
+.aui-nav a{
+	display: block;
+	background: #01bb70;
+	height: 40px;
+	width: 100%;
+	color: #FFFFFF;
+	text-align: center;
+	line-height: 40px;
+	border-radius: 100px;
+	
+}

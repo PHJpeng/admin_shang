@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>常见问题</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link rel="stylesheet" href="css/cui.css" />
+	<link rel="stylesheet" href="css/lib.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="js/httpUtil.js"></script>
+	
+
+	<style>
+html,body {
+	font-family: "微软雅黑", "Microsoft Yahei";width: 100%;margin:0;
+}
+* img{
+ width:100%;display:block;
+}
+* span{word-break: break-all;}
+#bd {
+	margin-top: 0px;
+	padding: 8px;
+}
+
+h1 {
+	display: block;
+	font-size: 2em;
+	-webkit-margin-before: 0.67em;
+	-webkit-margin-after: 0.67em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	font-weight: bold;
+}
+
+.title {
+	font-size: 17px;
+	line-height: 25px;
+	margin-bottom: 5px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.smailtitle{
+	font-size: 14px;
+	line-height: 25px;
+	margin-bottom: 5px;
+	font-weight: normal;
+	text-align: center;
+}
+.span{
+
+    font-size: 10px;
+}
+ .time{
+  float: right;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: normal;
+ }
+#fanhui{
+    background: url(images/fanhui.png) no-repeat left center;
+    -o-background-size: 27px auto;
+    -ms-background-size: 27px auto;
+    -moz-background-size: 27px auto;
+     -webkit-background-size: 17px auto;
+    background-size: 17px auto;
+    margin-left: 8px;
+}
+
+</style>
+<script>
+	var id=getParameter("id");
+	function goBack(){
+		alert("返回");
+	}
+	$(function(){
+		//初始化页面信息
+		var action = "/appTcmn01Cms/selectDetail.ph"
+		ajaxWeb(action, {"ccmn01Uuid":id}, function(data) {
+				
+				if (data.code == "40000") {
+					var rows = data.resobj;
+					
+					$("#title").html(rows.ccmn01Spare1);
+					$("#time").html(rows.ccmn01LastUpdateDate);
+					$("#cont").html(rows.ccmn01Content);
+				}
+			}, 'json');
+	})
+</script>
+</head>
+<body style="background-color: #fff;">
+	<!-- <section>
+		<ul class="m-list1" style="margin-top:0px;">
+			<li style="background-color: #12188f;"><a href="customer_service_list.html" id="fanhui">&nbsp;</a></li>
+		</ul>
+	</section> -->
+	<div id="bd">
+		<div class="m-article1 b-bgf">
+			<h1 class="title"><span id="title">积分如何获取?</span></h1>
+			<span class="time" id="time">2020年8月9日</span>
+
+			<div id="cont" style="padding-top:30px;">
+				<p>
+					考拉淘淘网—澳新产品海外直采直邮网站&nbsp; <br/>企业介绍：<br/>&nbsp; &nbsp; &nbsp; &nbsp;考拉淘淘澳新产品直购网(<a href="http://www.koalataotao.com">www.koalataotao.com</a>)是北京华澳鼎盛科技有限公司 负责运营的澳大利亚和新西兰产品直购直邮网站（所售商品包括：保健食品　婴幼儿及成人奶粉 美容护肤品日用品 服装鞋 羊毛制品和酒类产品）总部位于中国北京，在澳洲墨尔本 悉尼设立采购部。自营2000余种商品、海量热销澳新产品。保健食品　奶粉 美容护肤品　日用品均来自于澳洲知名连锁药房和大型（ChemistWarehouse、Priceline&nbsp;&nbsp; Coles、Woolworths）；澳洲时尚品牌OZLANA皮草大衣、UGG，EVER、AXA、DK、OZWEAR十多家品牌厂家直采同步上新。
+				</p>
+				<p>
+					<span style="margin: 0px; padding: 0px; height: auto; text-align: left; color: rgb(102, 102, 102); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: 楷体, 楷体_GB2312, SimKai; font-size: 24px; font-style: normal; font-weight: 400; word-spacing: 0px; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;"></span>
+				</p>
+				<p style="text-align: center;">
+					<span style="margin: 0px; padding: 0px; text-align: left; color: rgb(102, 102, 102); text-transform: none; text-indent: 0px; letter-spacing: 0em; font-family: 楷体,楷体_GB2312, SimKai; font-size: 20px; font-style: normal; font-weight: 400; word-spacing: 0px; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;"><span style="color:#000000;font-family:Arial;font-size:16px"></span><br/></span>
+				</p>
+				<p style="text-align: left;">
+					<span style="margin: 0px; padding: 0px; text-align: left; color: rgb(102, 102, 102); text-transform: none; text-indent: 0px; letter-spacing: 0em; font-family: 楷体,楷体_GB2312, SimKai; font-size: 20px; font-style: normal; font-weight: 400; word-spacing: 0px; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;"><img width="355" height="158" title="品牌背书.JPG" src="http://59.110.230.192/uploadtemp/upload1/20200114/19971578974779879.JPG"/></span>
+				</p>
+				<p style="text-align: left;">
+					<span style="margin: 0px; padding: 0px; text-align: left; color: rgb(102, 102, 102); text-transform: none; text-indent: 0px; letter-spacing: 0em; font-family: 楷体,楷体_GB2312, SimKai; font-size: 20px; font-style: normal; font-weight: 400; word-spacing: 0px; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;">经营品牌</span><br/><span style="margin: 0px; padding: 0px; text-align: left; color: rgb(102, 102, 102); text-transform: none; text-indent: 0px; letter-spacing: 0em; font-family: 楷体,楷体_GB2312, SimKai; font-size: 20px; font-style: normal; font-weight: 400; word-spacing: 0px; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;"><img width="355" height="335" title="品牌背书1.JPG" src="http://59.110.230.192/uploadtemp/upload1/20200114/16521578975495099.JPG"/></span>
+				</p>
+				<p style="text-align: left;">
+					<span style="margin: 0px; padding: 0px; text-align: left; color: rgb(102, 102, 102); text-transform: none; text-indent: 0px; letter-spacing: 0em; font-family: 楷体,楷体_GB2312, SimKai; font-size: 20px; font-style: normal; font-weight: 400; word-spacing: 0px; orphans: 2; widows: 2; background-color: rgb(255, 255, 255); font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;"></span><span style="margin: 0px; padding: 0px; height: auto; letter-spacing: 0em; font-family: 宋体,SimSun; font-size: 16px;">企业优势：<br/></span>
+				</p>
+				<p style="margin: 0px; padding: 0px; text-align: left;">
+					<span style="list-style: none; margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; height: auto; letter-spacing: 0em; font-family: 宋体,SimSun; font-size: 16px; font-style: inherit; font-weight: inherit; vertical-align: baseline;">1.商品均为澳新当地药房、超市、农场直采，不囤货压货，保证货品的新鲜。</span>
+				</p>
+				<p style="margin: 0px; padding: 0px; text-align: left;">
+					<span style="list-style: none; margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; height: auto; letter-spacing: 0em; font-family: 宋体,SimSun; font-size: 16px; font-style: inherit; font-weight: inherit; vertical-align: baseline;">2.价格包含邮费、税费，无需另外付费，可满足各类打包需求（写字、标记、拍照等）；</span>
+				</p>
+				<p style="margin: 0px; padding: 0px; text-align: left;">
+					<span style="list-style: none; margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; height: auto; letter-spacing: 0em; font-family: 宋体,SimSun; font-size: 16px; font-style: inherit; font-weight: inherit; vertical-align: baseline;"><span style="list-style: none; margin: 0px; padding: 0px; height: auto; letter-spacing: 0em; font-family: inherit; font-size: 20px; font-style: inherit; font-weight: inherit; vertical-align: baseline;">3.发货速度快，正确率</span><span style="list-style: none; margin: 0px; padding: 0px; height: auto; letter-spacing: 0em; font-family: inherit; font-size: 20px; font-style: inherit; font-weight: inherit; vertical-align: baseline;"><strong style="font-weight: bold;"><span style="list-style: none; margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; height: auto; color: rgb(128, 0, 0); letter-spacing: 0em; font-family: inherit; font-size: 20px; font-style: inherit; font-weight: inherit; vertical-align: baseline;">高达99.9%</span>；</strong></span></span>
+				</p>
+				<p style="margin: 0px; padding: 0px; text-align: left;">
+					<span style="list-style: none; margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; height: auto; letter-spacing: 0em; font-family: 宋体,SimSun; font-size: 16px; font-style: inherit; font-weight: inherit; vertical-align: baseline;"><strong style="font-weight: bold;"><span style="list-style: none; margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; height: auto; letter-spacing: 0em; font-family: 楷体,楷体_GB2312, SimKai; font-size: 20px; font-style: inherit; font-weight: inherit; vertical-align: baseline;">4.考拉淘淘网站（</span></strong><strong style="font-weight: bold;"><span style="list-style: none; margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; height: auto; letter-spacing: 0em; font-family: 楷体,楷体_GB2312, SimKai; font-size: 20px; font-style: inherit; font-weight: inherit; vertical-align: baseline;"><a href="http://www.koalataotao.com)/APP">www.koalataotao.com)/APP</a>商品支持实拍图、价格、实时库存和保质期实时显示。</span></strong></span>
+				</p>
+				<p style="list-style: none; margin: 0px 0px 1.5em; padding: 0px; border: 0px currentColor; border-image: none; text-align: left; color: rgb(85, 85, 85); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: &quot;Microsoft YaHei&quot;; font-size: 12px; font-style: normal; font-weight: 400; word-spacing: 0px; vertical-align: baseline; white-space: normal; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;">
+					<span style="list-style: none; margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; font-family: 宋体,SimSun; font-size: 16px; font-style: inherit; font-weight: inherit; vertical-align: baseline;">5.EWE、长江、蓝天、<span style="list-style: none; margin: 0px; padding: 0px; text-align: center; color: rgb(85, 85, 85); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: &quot;Microsoft YaHei&quot;; font-size: 16px; font-style: normal; font-weight: 400; word-spacing: 0px; vertical-align: baseline; float: none; display: inline !important; orphans: 2; widows: 2; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;">澳德</span><span style="list-style: none; margin: 0px; padding: 0px; text-align: center; color: rgb(85, 85, 85); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: &quot;Microsoft YaHei&quot;; font-size: 12px; font-style: normal; font-weight: 400; word-spacing: 0px; vertical-align: baseline; float: none; display: inline !important; orphans: 2; widows: 2; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;">、</span>贝海等龙头物流企业供选择，最大程度优化终端客人购物体验，可实时在线追踪包裹信息。</span>
+				</p>
+				<p style="list-style: none; margin: 0px 0px 1.5em; padding: 0px; border: 0px currentColor; border-image: none; text-align: left; color: rgb(85, 85, 85); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: &quot;Microsoft YaHei&quot;; font-size: 12px; font-style: normal; font-weight: 400; word-spacing: 0px; vertical-align: baseline; white-space: normal; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;">
+					<span style="list-style: none; margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; font-family: 宋体,SimSun; font-size: 16px; font-style: inherit; font-weight: inherit; vertical-align: baseline;"><span style="list-style: none; margin: 0px; padding: 0px; font-family: 楷体,楷体_GB2312, SimKai; font-size: 20px; font-style: inherit; font-weight: inherit; vertical-align: baseline;">6人工客服北京时间</span><span style="list-style: none; margin: 0px; padding: 0px; color: rgb(128, 0, 0); font-family: 楷体,楷体_GB2312, SimKai; font-size: 20px; font-style: inherit; font-weight: inherit; vertical-align: baseline;"><strong style="font-weight: bold;">8：00--22：00在线</strong></span><span style="list-style: none; margin: 0px; padding: 0px; font-family: 楷体,楷体_GB2312, SimKai; font-size: 20px; font-style: inherit; font-weight: inherit; vertical-align: baseline;">，实时回复会员各类咨询，售后问题第一时间解决。</span></span>
+				</p>
+				<p style="list-style: none; margin: 0px 0px 1.5em; padding: 0px; border: 0px currentColor; border-image: none; text-align: left; color: rgb(85, 85, 85); text-transform: none; text-indent: 0px; letter-spacing: normal; font-family: &quot;Microsoft YaHei&quot;; font-size: 12px; font-style: normal; font-weight: 400; word-spacing: 0px; vertical-align: baseline; white-space: normal; font-variant-ligatures: normal; font-variant-caps: normal; -webkit-text-stroke-width: 0px; text-decoration-style: initial; text-decoration-color: initial;">
+					<span style="font-family: 宋体,SimSun;"><span style="list-style: none; margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; font-family: 宋体,SimSun; font-size: 16px; font-style: inherit; font-weight: inherit; vertical-align: baseline;">&nbsp; 客服联系方式&nbsp;</span><span style="list-style: none; margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; font-family: 宋体,SimSun; font-size: 20px; font-style: inherit; font-weight: inherit; vertical-align: baseline;">&nbsp; </span></span><span style="list-style: none; margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; font-family: 楷体,楷体_GB2312, SimKai; font-size: 20px; font-style: inherit; font-weight: inherit; vertical-align: baseline;"><br/></span>
+				</p>
+				<p style="text-align: left;">
+					<span style="list-style: none; margin: 0px; padding: 0px; border: 0px currentColor; border-image: none; font-family: 楷体,楷体_GB2312, SimKai; font-size: 20px; font-style: inherit; font-weight: inherit; vertical-align: baseline;"><img width="355" height="480" title="微信客服_.jpg" src="http://59.110.230.192/uploadtemp/upload1/20200117/50851579246636051.jpg"/></span>
+				</p>
+				<p>
+					&nbsp;
+				</p>
+			</div>
+		</div>
+
+	</div>
+
+
+</body>
+</html>

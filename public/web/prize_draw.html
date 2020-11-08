@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>大转盘</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+    <meta name="keywords" content=""/>
+    <meta name="description" content=""/>
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <link rel="stylesheet" type="text/css" href="css/pd.css">
+    <script src="js/jquery-1.8.3.min.js"></script>
+    <script src="js/httpUtil.js"></script>
+    <script type="text/javascript">
+        var lottery = {
+            index: -1,	//当前转动到哪个位置，起点位置
+            count: 0,	//总共有多少个位置
+            timer: 0,	//setTimeout的ID，用clearTimeout清除
+            speed: 0,	//初始转动速度,值越大速度越慢
+            times: 0,	//转动次数
+            cycle: 55,	//转动基本次数：即至少需要转动多少次再进入抽奖环节
+            prize: -1,	//中奖位置
+            init: function (id) {
+                if ($("#" + id).find(".lottery-unit").length > 0) {
+                    $lottery = $("#" + id);
+                    $units = $lottery.find(".lottery-unit");
+                    this.obj = $lottery;
+                    this.count = $units.length;
+                    $lottery.find(".lottery-unit-" + this.index).addClass("active");
+                }
+            },
+            roll: function () {
+                var index = this.index;
+                var count = this.count;
+                var lottery = this.obj;
+                $(lottery).find(".lottery-unit-" + index).removeClass("active");
+                index += 1;
+                if (index >= count - 1) {
+                    index = 0;
+                }
+                $(lottery).find(".lottery-unit-" + index).addClass("active");
+                this.index = index;
+                return false;
+            },
+            stop: function (index) {
+                this.prize = index;
+                return false;
+            }
+        };
+
+        function rolls() {
+            lottery.times += 1;
+            lottery.roll();
+            if (lottery.times > lottery.cycle + 10 && lottery.prize == lottery.index) {
+                if (prizeCount > 0) {
+                    $("#s_btn").attr('src', 'images/again.png');
+                } else {
+                    $("#s_btn").attr('src', 'images/end.png');
+                }
+                clearTimeout(lottery.timer);
+                lottery.prize = -1;
+                lottery.times = 0;
+                setTimeout(function () {
+                    var prizeId = $("#prize_id").val();
+                    if(prizeId==4||prizeId==3){
+                        alert("谢谢参与")
+                    }else {
+                        $("#shade_").css("display", "block");
+                        $("#_share").css("display", "block");
+                    }
+
+                }, 200);
+                click = false;
+
+            } else {
+                if (lottery.times < lottery.cycle) {
+                    lottery.speed -= 10;
+                } else if (lottery.times == lottery.cycle) {
+                    var prizeId = $("#prize_id").val();
+                    lottery.prize = prizeId;
+                } else {
+                    if (lottery.times > lottery.cycle + 10 && ((lottery.prize == 0 && lottery.index == 7) || lottery.prize == lottery.index + 1)) {
+                        lottery.speed += 110;
+                    } else {
+                        lottery.speed += 20;
+                    }
+                }
+                if (lottery.speed < 40) {
+                    lottery.speed = 40;
+                }
+                lottery.timer = setTimeout(rolls, lottery.speed);
+            }
+            return false;
+        }
+
+        var click = false;
+        var prizeCount = 0;//可抽奖最大次数
+        var authorization=getParameter("authorization")
+        window.onload = function () {
+            //获取抽奖次数
+            var action = "/v1/getNum"
+            ajaxWeb(action, {"authorization":authorization}, function(data) {
+                var rows = data.data;
+                if (data.code == "2000") {
+                    prizeCount=data.data;
+                }else{//没有抽奖次数
+
+                }
+            }, 'json');
+
+            lottery.init('lottery');
+            $("#lottery a").click(function () {
+                if (click) {
+                    return false;
+                } else {
+                    if (prizeCount == 0) {
+                        $("#_shade").css("display", "block");
+                        $("#_dialog").css("display", "block");
+                        return false;
+                    }
+                    prizeCount -= 1;
+                    lottery.speed = 140;
+                    //开始抽奖
+                    click = true;
+                    ajaxWeb("/v1/retuenTable", {"authorization":authorization}, function(data) {
+                        var rows = data.data;
+                        if (data.code == "2000") {
+                            prizeCount=rows.surplus_num;
+                            $("#prize_id").val(rows.number-1);
+                            if(rows.number==4||rows.number==5){
+                                $("#prize_name").text("谢谢参与");
+                            }else {
+                                $("#prize_name").text(rows.reward+"积分");
+                            }
+
+                            rolls();
+
+                            return false;
+                        }else{//没有抽奖次数
+                            $("#_shade").css("display", "block");
+                            $("#_dialog").css("display", "block");
+                            return false;
+                        }
+                    }, 'json');
+                    //         $("#prize_id").val(6);
+                    //         $("#prize_name").text("50积分");
+                    //         rolls();
+                    //         click = true;
+                    //         return false;
+                }
+            });
+            //close the confirm dialog
+            $("#_close").click(function () {
+                $("#_shade").css("display", "none");
+                $("#_dialog").css("display", "none");
+            });
+            //close the share dialog
+            $("#share_c").click(function () {
+                $("#shade_").css("display", "none");
+                $("#_share").css("display", "none");
+            });
+            //share call
+            $("#lj_share").click(function () {
+                $("#share_c").click();
+            });
+        };
+    </script>
+</head>
+<body>
+<div id="_shade" class="_shade">
+    <!--关闭弹出框遮罩层透明-->
+</div>
+<div id="shade_" class="shade_">
+    <!--分享弹出框遮罩层0.3透明-->
+</div>
+<div id="_share" class="_share">
+    <span id="share_c" class="share_c"></span>
+    <span id="prize_name" class="prize_name"></span>
+    <img class="prize_info" src="images/prize-info.png" alt="">
+    <img id="lj_share" class="share_btn" src="images/ljshare.png" alt="">
+</div>
+<div id="_dialog" class="_dialog">
+    <div class="_tip">
+        <span>今日抽奖次数已用完</span>
+    </div>
+    <hr class="_hr"/>
+    <div id="_close" class="_close">
+        <span>关闭</span>
+    </div>
+</div>
+<div class="lottery" id="lottery" style="text-align: center;">
+    <input hidden id="prize_id" value=""/>
+
+    <table class="lottery_table" id="lottery_table" border="0" cellpadding="0" cellspacing="0">
+        <tr>
+            <td class="lottery-unit lottery-unit-0"><img src="images/1.png"></td>
+            <td class="lottery-unit lottery-unit-1"><img src="images/2.png"></td>
+            <td class="lottery-unit lottery-unit-2"><img src="images/3.png"></td>
+        </tr>
+        <tr>
+            <td class="lottery-unit lottery-unit-3"><img src="images/4.png"></td>
+            <td class="lottery-unit"><img src="images/9.png"></td>
+            <td class="lottery-unit lottery-unit-4"><img src="images/5.png"></td>
+        </tr>
+        <tr>
+            <td class="lottery-unit lottery-unit-5"><img src="images/6.png"></td>
+            <td class="lottery-unit lottery-unit-6"><img src="images/7.png"></td>
+            <td class="lottery-unit lottery-unit-7"><img src="images/8.png"></td>
+        </tr>
+    </table>
+    <div class="start_btn">
+        <a href="javascript:void(0);"><img id="s_btn" src="images/start.png" alt=""></a>
+    </div>
+</div>
+</body>
+
+</html>

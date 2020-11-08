@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+	<meta charset="UTF-8">
+	<title>新闻详情</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1.0,user-scalable=no">
+	<meta name="keywords" content="" />
+	<meta name="description" content="" />
+	<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+	<link rel="stylesheet" href="css/cui.css" />
+	<link rel="stylesheet" href="css/lib.css" />
+	<link rel="stylesheet" href="css/style.css" />
+	<script type="text/javascript" src="js/jquery-1.8.3.min.js"></script>
+	<script type="text/javascript" src="js/httpUtil.js"></script>
+	<script type="text/javascript" src="js/zxn.public.js"></script>
+
+
+	<style>
+html,body {
+	font-family: "微软雅黑", "Microsoft Yahei";width: 100%;margin:0;
+}
+* img{
+ width:100%;display:block;
+}
+* span{word-break: break-all;}
+#bd {
+	margin-top: 0px;
+	padding: 8px;
+}
+
+h1 {
+	display: block;
+	font-size: 2em;
+	-webkit-margin-before: 0.67em;
+	-webkit-margin-after: 0.67em;
+	-webkit-margin-start: 0px;
+	-webkit-margin-end: 0px;
+	font-weight: bold;
+}
+
+.title {
+	font-size: 17px;
+	line-height: 25px;
+	margin-bottom: 5px;
+	font-weight: bold;
+	text-align: center;
+}
+
+.smailtitle{
+	font-size: 14px;
+	line-height: 25px;
+	margin-bottom: 5px;
+	font-weight: normal;
+	text-align: center;
+}
+.span{
+
+    font-size: 10px;
+}
+ .time{
+  float: right;
+  font-size: 12px;
+  font-style: normal;
+  font-weight: normal;
+ }
+#fanhui{
+    background: url(images/fanhui.png) no-repeat left center;
+    -o-background-size: 27px auto;
+    -ms-background-size: 27px auto;
+    -moz-background-size: 27px auto;
+     -webkit-background-size: 17px auto;
+    background-size: 17px auto;
+    margin-left: 8px;
+}
+
+</style>
+<script>
+	var shopid=getParameter("shopid");
+	function goBack(){
+		alert("返回");
+	}
+	$(function(){
+		//初始化页面信息
+		var action = "/v1/news"
+		ajaxWeb(action, {"shopid":shopid}, function(data) {
+				
+				if (data.code == "2000") {
+					var rows = data.data;
+					
+					$("#title").html(rows.abstract);
+					$("#time").html(rows.ctime);
+					$("#cont").html(rows.content);
+					console.log(rows.content)
+				}else {
+					$("body").html(data.msg);
+				}
+			}, 'json');
+	})
+</script>
+</head>
+<body style="background-color: #fff;">
+	<!-- <section>
+		<ul class="m-list1" style="margin-top:0px;">
+			<li style="background-color: #12188f;"><a href="customer_service_list.html" id="fanhui">&nbsp;</a></li>
+		</ul>
+	</section> -->
+	<div id="bd">
+		<div class="m-article1 b-bgf">
+			<h1 class="title"><span id="title"></span></h1>
+			<span class="time" id="time"></span>
+
+			<div id="cont" style="padding-top:30px;">
+
+			</div>
+		</div>
+
+	</div>
+
+
+</body>
+</html>
